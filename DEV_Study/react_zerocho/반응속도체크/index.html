@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Response Check</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #screen {
+      margin-top: 20px;
+      margin-left: 20px;
+      width: 400px;
+      height: 400px;
+      background-color: greenyellow;
+      text-align: center;
+      padding-top: 50px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    #screen.waiting {
+      background-color: tomato;
+      color: greenyellow;
+      font-weight: 700;
+    }
+    #screen.ready {
+      background-color: red;
+    }
+    #screen.now {
+      background-color: blueviolet;
+      color: tomato;
+    }
+    .ever-time {
+      margin-left: 20px;
+      display: inline-flex;
+    }
+    .reset {
+      border: 1px solid tomato;
+      background:none;
+      background-color: #fefefe;
+      border-radius: 3px;
+      color: tomato;
+      padding: 2px;
+      display: inline-flex;
+      margin-left: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="./dist/app.js"></script>
+</body>
+</html>

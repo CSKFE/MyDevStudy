@@ -1,0 +1,68 @@
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>구구단 for React</title>
+      <style>
+        input::-webkit-inner-spin-button{
+          display: none;
+        }
+      </style>
+  </head>
+  <body>
+  <div id="root"></div>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script> -->
+  <!-- <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script> -->
+  <script type="text/babel">
+      'use strict';
+
+      const formStyle = {
+        borderColor:'tomato',
+        borderRadius:'3px',
+        outLine:'none',
+        background:'none',
+      }
+      const Gugudan = () => {
+        const [first, setFirst] = React.useState(Math.ceil(Math.random() * 9));
+        const [second, setSecond] = React.useState(Math.ceil(Math.random() * 9));
+        const [value, setValue] = React.useState('');
+        const [result, setResult] = React.useState('');
+        const ref = React.useRef(null);
+        const onChangeInput = (e) => {
+          setValue(e.target.value);
+        }
+
+        const onSubmitForm = (e) => {
+          e.preventDefault();
+          if(parseInt(value) === first * second) {
+                setResult(`정답 ${value}`);
+                setFirst(Math.ceil(Math.random() * 9));
+                setSecond(Math.ceil(Math.random() * 9));
+                setValue('');
+                ref.current.focus();
+              } else {
+                setResult(`땡 ${value}`);
+                setValue('');
+                ref.current.focus();
+          }
+        }
+        console.log('render');
+        return (
+          <React.Fragment>
+            <div>{first} 곱하기 {second} 는?</div>
+            <form onSubmit={onSubmitForm}>
+              <input ref={ref} onChange={onChangeInput} value={value} type="number" />
+              <button>제출</button>
+            </form>
+            <div id="result">{result}</div>
+          </React.Fragment>
+        );
+      }
+  </script>
+  <script type="text/babel">
+      ReactDOM.render(<Gugudan />, document.querySelector('#root')); // 17버전
+  </script>
+  </body>
+</html>
