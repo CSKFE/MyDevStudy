@@ -1,0 +1,27 @@
+@import './products';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+#root {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.gnb {
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
